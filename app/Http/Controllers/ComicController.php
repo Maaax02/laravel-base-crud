@@ -70,7 +70,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -80,9 +80,12 @@ class ComicController extends Controller
      * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $comic = Comic::findOrFail($id);
+        $comic->update($data);
+        return redirect()->route('comics.show', $id);
     }
 
     /**
@@ -91,8 +94,11 @@ class ComicController extends Controller
      * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comic $comic)
+    public function destroy($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $comic->delete();
+        
+        return redirect()->route('comics.index');
     }
 }
