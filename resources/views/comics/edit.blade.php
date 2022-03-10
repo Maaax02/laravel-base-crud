@@ -74,7 +74,7 @@
 
 
     <div class="d-flex">
-      <button class="btn btn-outline-secondary me-3" type="reset">Indietro</button>
+      <a class="btn btn-outline-secondary me-3" type="reset" href="{{route('comics.index')}}">Indietro</a>
       <button class="btn btn-success" type="submit">Edit</button>
     </div>
   </form>

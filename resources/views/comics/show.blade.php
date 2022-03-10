@@ -12,8 +12,11 @@
             <li>Date: {{$comic->saleDate}}</li>
             <li>Type: {{$comic->type}}</li>
         </div>
-        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#display-modal">Delete</button>
-        <a href="{{route('comics.edit', $comic->id)}}">edit</a>
+
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#display-modal">Delete</button>
+          <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-secondary">Edit</a>
+        </div>
         <form action="{{route('comics.destroy', $comic->id)}}" method="post">
             @csrf
             @method('delete')

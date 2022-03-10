@@ -1,8 +1,5 @@
 @import '~bootstrap/scss/bootstrap.scss';
 
-nav{
-    color: red;
-}
 ul{
     list-style: none;
 }
@@ -17,3 +14,8 @@ ul{
 .edit{
     margin-bottom: 30px;
 }
+
+.errors-lists{
+    list-style-type: style; 
+}
+
