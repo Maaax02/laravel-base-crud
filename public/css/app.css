@@ -12182,7 +12182,13 @@ ul {
 }
 
 .list {
-  border: 1px solid red;
+  border: 1px solid black;
+  border-radius: 14px;
   margin: 10px auto;
+  padding: 14px 14px;
+}
+
+.edit {
+  margin-bottom: 30px;
 }
 

@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul>
         <li><a href="{{route('comics.create')}}">Create Comics</a></li>

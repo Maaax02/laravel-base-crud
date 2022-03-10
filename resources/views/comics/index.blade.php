@@ -11,6 +11,7 @@
             <li>Date: {{$fumetto->saleDate}}</li>
             <li>Type: {{$fumetto->type}}</li>
             <a href="{{route('comics.show', $fumetto->id)}}">details</a>
+            <a href="{{route('comics.edit', $fumetto->id)}}">edit</a>
         </div>
         @endforeach
     </ul>

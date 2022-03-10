@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
+    protected $comicValidation = [
+        'title' => 'required | min: 4',
+        'description' => 'required | min: 4',
+        'thumb' => 'nullable',
+        'price' => 'required | min: 2',
+        'series' => 'nullable',
+        'saleDate' => 'nullable',
+        'type' => 'required | min: 4',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -39,13 +48,7 @@ class ComicController extends Controller
         $data = $request->all();
 
         $newComic = new Comic();
-        $newComic->title = $data['title'];
-        $newComic->description = $data['description'];
-        $newComic->thumb = $data['thumb'];
-        $newComic->price = $data['price'];
-        $newComic->series = $data['series'];
-        $newComic->saleDate = $data['sale_date'];
-        $newComic->type = $data['type'];
+        $newComic->fill($data);
         $newComic->save();
 
         return redirect()->route('comics.show', $newComic->id);
@@ -68,8 +71,9 @@ class ComicController extends Controller
      * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comic $comic)
+    public function edit($id)
     {
+        $comic = Comic::findOrFail($id);
         return view('comics.edit', compact('comic'));
     }
 
